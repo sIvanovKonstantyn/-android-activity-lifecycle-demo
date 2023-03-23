@@ -3,6 +3,7 @@ package com.example.activitilifecycleapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -27,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
                                     .putExtra("data_from-first_activity", "* was forwarded from first activity");
 
                             startActivity(nextActivityIntent);
+                        }
+                );
+
+        findViewById(R.id.openYoutubeButton)
+                .setOnClickListener(
+                        v -> {
+                            Intent openYoutubeIntent = new Intent(Intent.ACTION_VIEW);
+                            openYoutubeIntent.setData(Uri.parse("https://www.youtube.com/"));
+
+                            startActivity(openYoutubeIntent);
                         }
                 );
     }
