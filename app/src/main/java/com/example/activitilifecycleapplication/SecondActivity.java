@@ -4,31 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         showMessage("onCreate()");
-
-        findViewById(R.id.nextActivityButton)
-                .setOnClickListener(
-                        v -> {
-                            Intent nextActivityIntent = new Intent(
-                                    getApplicationContext(),
-                                    SecondActivity.class
-                            );
-
-                            nextActivityIntent
-                                    .putExtra("data_from-first_activity", "* was forwarded from first activity");
-
-                            startActivity(nextActivityIntent);
-                        }
-                );
+        setContentView(R.layout.activity_second);
+        showMessage(getIntent().getStringExtra("data_from-first_activity"));
     }
 
     @Override
@@ -68,6 +53,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showMessage(String message) {
-        Toast.makeText(this, "MainActivity: " + message, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "SecondActivity: " + message, Toast.LENGTH_LONG).show();
     }
 }

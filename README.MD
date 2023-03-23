@@ -1,1 +1,2 @@
-##Activity lifecycle demo app
+## Activity lifecycle demo app
+## + intents interaction between two activities
